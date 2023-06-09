@@ -1,0 +1,90 @@
+@import '../styles/styles.scss';
+
+.cmp-editor {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+    &.empty {
+        justify-content: center;
+        .no-notes {
+            height: 25vh;
+            width: 50vh;
+            border: 2px solid rgba($color: $bg-color-light, $alpha: 0.4);
+            border-radius: 4px;
+            background-color: rgba($color: $bg-color-light, $alpha: 0.4);
+            transition: all 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .editor-add-note {
+                height: 23vh;
+                width: 48vh;
+                border: 2px dotted rgba($color: $text-primary, $alpha: 0.2);
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 36px;
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgba($color: $bg-color-light, $alpha: 0.8);
+            }
+        }
+    }
+
+    .editor-area {
+        height: 75vh;
+        width: 100%;
+
+        .title-area{
+            display: flex;
+            justify-content: center;
+            .title-input {
+                width: 75%;
+                border: unset;
+                background-color: unset;
+                line-height: 48px;
+                color: $text-primary;
+                font-size: 48px;
+                border-bottom: 2px solid $bg-color-light;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        .input-area {
+            margin: 48px 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+
+            .content-input {
+                width: 75%;
+                height: 100%;
+                border: 2px solid rgba($color: $bg-color-light, $alpha: 0.2);
+                border-radius: 4px;
+                background-color: unset;
+                color: $text-primary;
+                overflow: hidden;
+                resize: unset;
+                font-size: 18px;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+    }
+}

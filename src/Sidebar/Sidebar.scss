@@ -1,0 +1,118 @@
+@import '../styles/styles.scss';
+
+.cmp-sidebar {
+    min-width: 270px;
+    width: 20vw;
+    height: 100%;
+    border-right: 2px solid rgba($color: $text-muted, $alpha: 0.4);
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        margin: 24px;
+        height: 100%;
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 100%;
+            height: 75px;
+            border-radius: 8px;
+            background-color: rgba($color: $text-muted, $alpha: 0.2);
+            margin-bottom: 24px;
+
+            // header text
+            font-size: 36px;
+        }
+
+        .notes-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            border-radius: 6px;
+            background-color: rgba($color: $text-muted, $alpha: 0.2);
+            transition: all 0.5s ease;
+            max-height: 80vh;
+
+            // default font size for list
+            font-size: 16px;
+
+            ul {
+                padding: 0;
+                overflow-y: scroll;
+            }
+
+            li {
+                text-decoration: none;
+                list-style-type: none;
+                display: block;
+                transition: all 200ms ease;
+                padding: 0 24px;
+
+                .note {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    
+                    .note-header {
+                        width: 80%;
+                        color: $text-muted;
+                        transition: all 200ms ease;
+
+                        &.selected {
+                            color: $text-primary;
+                        }
+                    }
+                    
+                    .note-delete-btn {
+                        width: 20%;
+                        display: none;
+                        color: $text-muted;
+                        transition: all 200ms ease;
+                        background: url('../assets/delete.png');
+                        background-size: 16px 16px;
+                        height: 16px;
+                        width: 16px;
+                    }
+
+                    &:hover, &:hover * {
+                        color: $text-primary;
+
+                        .note-delete-btn {
+                            display: block;
+
+                            &:hover {
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                }
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
+            .add-note {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 0;
+                font-size: 24px;
+                color: $text-muted;
+                background-color: rgba($color: $text-muted, $alpha: 0.2);
+                border-bottom-right-radius: 6px;
+                border-bottom-left-radius: 6px;
+                transition: all 0.5s ease;
+
+                &:hover {
+                    background-color: rgba($color: $text-muted, $alpha: 0.8);
+                    color: $text-primary;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

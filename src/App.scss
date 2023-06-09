@@ -1,0 +1,41 @@
+// add element-specific configuration here
+
+@import './styles/styles.scss';
+
+
+body {
+    background-color: $bg-color;
+    color: $text-primary;
+    font-family: 'Encode Sans Semi Condensed', sans-serif;
+
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+   
+    ::-webkit-scrollbar-thumb {
+        background: rgba($color: $text-primary, $alpha: 0.2); 
+        border-radius: 10px;
+        transition: all 0.5 ease;
+
+        &:hover {
+            background: rgba($color: $text-primary, $alpha: 0.4);
+        }
+    }
+}
+
+input {
+    font-family: 'Encode Sans Semi Condensed', sans-serif;
+}
+
+textarea {
+    font-family: 'Encode Sans Semi Condensed', sans-serif;
+}
+
+// main window
+
+.cmp-main {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
