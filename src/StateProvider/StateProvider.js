@@ -88,7 +88,8 @@ export const useStateProvider = () => {
             key,
             content: "",
             title: "",
-            isSelected: true
+            isSelected: true,
+            mode: "normal"
         }
 
         // after creating the note, 
@@ -104,6 +105,18 @@ export const useStateProvider = () => {
         saveNoteProviderState(updatedNotes);
     }
 
+    const changeNoteMode = (key, mode) => {
+        const newNotes = notes.map(note => {
+            if (note.key === key) {
+                return {
+                    ...note, mode
+                }
+            }
+            return note;
+        })
+        saveNoteProviderState(newNotes);
+    }
+
 
     return {
         provider: {
@@ -113,6 +126,7 @@ export const useStateProvider = () => {
             selectNote,
             editNoteTitle,
             editNoteContent,
+            changeNoteMode,
             deleteNote
         }
     }

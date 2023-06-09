@@ -18,6 +18,7 @@ const App = () => {
       editNoteTitle={provider.editNoteTitle}
       editNoteContent={provider.editNoteContent}
       addNewNote={provider.addNewNote}
+      changeNoteMode={provider.changeNoteMode}
     />
   </div>
 }
