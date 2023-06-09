@@ -1,12 +1,16 @@
+import { TextareaMarkdown, TextareaMarkdownRef } from 'textarea-markdown-editor/dist/TextareaMarkdown';
 import './Editor.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
-export const Editor = ({notes = [], editNoteTitle = () => {}, editNoteContent = () => {}, addNewNote = () => {}}) => {
+export const Editor = ({notes = [], editNoteTitle = () => {}, editNoteContent = () => {}, addNewNote = () => {}, changeNoteMode = () => {}}) => {
     const [selectedNote, setSelectedNote] = useState({});
 
     // local states
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const [mode, setMode] = useState("normal"); // normal, markdown
+
 
     useEffect(() => {
         if (notes.length === 0) return;
@@ -14,6 +18,7 @@ export const Editor = ({notes = [], editNoteTitle = () => {}, editNoteContent = 
             const selected = notes.filter(note => note.isSelected)[0];
             setTitle(selected.title);
             setContent(selected.content);
+            setMode(selected.mode);
             return selected;
         })
     }, [notes])
@@ -46,16 +51,35 @@ export const Editor = ({notes = [], editNoteTitle = () => {}, editNoteContent = 
                             />
                         </div>
                         <div className='input-area'>
-                            <textarea
-                                className='content-input'
-                                value={content}
-                                onChange={(e) => setContent(e.target.value)}
-                                onBlur={(e) => onChangeContent(selectedNote.key, e.target.value)}
-                            />
+                            <div className='display-area'>
+                                <textarea
+                                    className='content-input'
+                                    value={content}
+                                    onChange={(e) => setContent(e.target.value)}
+                                    onBlur={(e) => onChangeContent(selectedNote.key, e.target.value)}
+                                />
+                                <div className={`md-preview ${mode === "markdown" ? "" : "hidden"}`}>
+                                    <span className='md-preview-header'>Markdown Preview</span>
+                                    <ReactMarkdown className={`md-preview-display`}>
+                                        {content}
+                                    </ReactMarkdown>
+                                </div>
+                            </div>
+                            <div className='control-area'>
+                                <span 
+                                    className={`mode-btn ${mode === "normal" ? "selected" : ""}`}
+                                    onClick={()=>changeNoteMode(selectedNote.key, "normal")}
+                                >
+                                    Normal
+                                </span>
+                                <span 
+                                    className={`mode-btn ${mode === "markdown" ? "selected" : ""}`}
+                                    onClick={()=>changeNoteMode(selectedNote.key, "markdown")}
+                                >
+                                    Markdown
+                                </span>
+                            </div> 
                         </div>
-                    </div>
-                    <div className='control-area'>
-
                     </div>
                 </>
             }
