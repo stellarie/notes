@@ -13,7 +13,7 @@ export const Sidebar = ({notes = [], selectNote = () => {}, deleteNote = () => {
                                         <span className={`note-header ${note.isSelected ? 'selected' : ''}`} onClick={() => selectNote(note.key)}>
                                             {   note.title.length > 0 ? 
                                                 note.title 
-                                                : <span className='untitled'> (untitled note) </span>
+                                                : <span className='untitled'> untitled note </span>
                                             }
                                         </span>
                                         <span className='note-delete-btn' onClick={() => deleteNote(note.key)}></span>
