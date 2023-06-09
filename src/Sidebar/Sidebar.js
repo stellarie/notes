@@ -10,7 +10,12 @@ export const Sidebar = ({notes = [], selectNote = () => {}, deleteNote = () => {
                             return (
                                 <li key={note.key}>
                                     <div className='note'>
-                                        <span className={`note-header ${note.isSelected ? 'selected' : ''}`} onClick={() => selectNote(note.key)}>{note.title.length > 0 ? note.title : '(untitled note)'}</span>
+                                        <span className={`note-header ${note.isSelected ? 'selected' : ''}`} onClick={() => selectNote(note.key)}>
+                                            {   note.title.length > 0 ? 
+                                                note.title 
+                                                : <span className='untitled'> (untitled note) </span>
+                                            }
+                                        </span>
                                         <span className='note-delete-btn' onClick={() => deleteNote(note.key)}></span>
                                     </div>
                                 </li>
