@@ -53,6 +53,10 @@
                         &.selected {
                             color: $text-primary;
                         }
+
+                        .untitled {
+                            font-style: italic;
+                        }
                     }
                     
                     .note-delete-btn {
