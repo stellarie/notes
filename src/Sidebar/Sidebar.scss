@@ -9,31 +9,19 @@
     .content {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         margin: 24px;
         height: 100%;
-
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            max-width: 100%;
-            height: 75px;
-            border-radius: 8px;
-            background-color: rgba($color: $text-muted, $alpha: 0.2);
-            margin-bottom: 24px;
-
-            // header text
-            font-size: 36px;
-        }
 
         .notes-list {
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
+            justify-content: space-between;
             border-radius: 6px;
             background-color: rgba($color: $text-muted, $alpha: 0.2);
             transition: all 0.5s ease;
-            max-height: 80vh;
+            max-height: 70vh;
+            min-height: 50vh;
 
             // default font size for list
             font-size: 16px;
@@ -107,6 +95,7 @@
                 border-bottom-right-radius: 6px;
                 border-bottom-left-radius: 6px;
                 transition: all 0.5s ease;
+
 
                 &:hover {
                     background-color: rgba($color: $text-muted, $alpha: 0.8);
