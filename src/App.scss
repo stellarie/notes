@@ -21,6 +21,10 @@ body {
             background: rgba($color: $text-primary, $alpha: 0.4);
         }
     }
+
+    ::placeholder {
+        color: rgba($color: $text-primary, $alpha: 0.1);   
+    }
 }
 
 input {

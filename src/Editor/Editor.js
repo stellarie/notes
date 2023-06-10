@@ -48,6 +48,7 @@ export const Editor = ({notes = [], editNoteTitle = () => {}, editNoteContent = 
                                 value={title} 
                                 onChange={(e) => setTitle(e.target.value)}
                                 onBlur={(e) => onChangeTitle(selectedNote.key, e.target.value)}
+                                placeholder='Enter your title here'
                             />
                         </div>
                         <div className='input-area'>
@@ -57,6 +58,7 @@ export const Editor = ({notes = [], editNoteTitle = () => {}, editNoteContent = 
                                     value={content}
                                     onChange={(e) => setContent(e.target.value)}
                                     onBlur={(e) => onChangeContent(selectedNote.key, e.target.value)}
+                                    placeholder='Enter your note here'
                                 />
                                 <div className={`md-preview ${mode === "markdown" ? "" : "hidden"}`}>
                                     <span className='md-preview-header'>Markdown Preview</span>
